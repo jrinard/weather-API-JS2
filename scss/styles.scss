@@ -1,0 +1,15 @@
+$gray : #d3d3d3;
+$green : #39ac39;
+
+.box {
+  background: $gray;
+  border: 3px solid black thin;
+  padding: 40px 80px;
+  border-radius: 15px;
+  .button {
+    text-align: center;
+    background: $green;
+    color: white;
+    border-radius: 10px;
+  }
+}
