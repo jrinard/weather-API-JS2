@@ -1,17 +1,21 @@
 var Weather = require('./../js/weather.js').weatherModule;
 
-var apiKey = "4738c39a42c67166387737f8be25dcef";
+var apiKey = require('./../.env').apiKey;
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
     var city = $('#location').val();
     $('#location').val("");
-    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
-      $('.showWeather').append("The humidity in " + city + " is " + response.main.humidity + "%");
-      $('.showTemp').append("The Temperature in " + city + " is " + conversion(response.main.temp) + "F");
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
+      $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
+      $('.showTemp').text("The temperature in " + city + " is " + conversion(response.main.temp) + "F");
+    }).fail(function(error) {
+      $('.showWeather').text(error.responseJSON.message);
     });
+
   });
 });
+
 
 
 
