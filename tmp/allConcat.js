@@ -3,11 +3,11 @@ var Weather = require('./../js/weather.js').weatherModule;
 
 
 $(document).ready(function() {
-  var currentWeatherObject = new Weather();
+  var currentWeatherObject = new Weather();//create an object from the prototype
   $('#weatherLocation').click(function() {
     var city = $('#location').val();
     $('#location').val("");
-    currentWeatherObject.getWeather(city);
+    currentWeatherObject.getWeather(city);//with object run the method and pass in the city
   });
 });
 

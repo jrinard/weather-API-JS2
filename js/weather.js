@@ -5,9 +5,9 @@ function Weather(){
 }
 
 Weather.prototype.getWeather = function(city) {
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
-    $('.showWeather').html('<h2>' + city + '</h2>' + "Humidity: " + response.main.humidity + "%");
-    $('.showTemp').html("Temperature: " + conversionK(response.main.temp) + "°F");
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(ourGetResponse) {
+    $('.showWeather').html('<h2>' + city + '</h2>' + "Humidity: " + ourGetResponse.main.humidity + "%");
+    $('.showTemp').html("Temperature: " + conversionK(ourGetResponse.main.temp) + "°F");
   }).fail(function(error) {
     $('.showWeather').text(error.responseJSON.message);
     $('.showTemp').text(error.responseJSON.message);

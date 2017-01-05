@@ -1,5 +1,5 @@
 node_modules/
 bower_components/
 build/
-temp/
+tmp/
 .DS_Store
