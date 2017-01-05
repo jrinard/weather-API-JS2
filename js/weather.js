@@ -1,6 +1,7 @@
 
 var apiKey = require('./../.env').apiKey;
 
+//constructor because it's capitalized
 function Weather(){
 }
 
